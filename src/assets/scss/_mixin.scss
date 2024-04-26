@@ -1,0 +1,27 @@
+@mixin ta-mobile {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin ta-tablet {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin ta-desktop {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+
+@mixin ta-big-desktop {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+
+@mixin ta-show-hide($value) {
+  display: $value;
+}

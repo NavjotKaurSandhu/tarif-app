@@ -1,0 +1,68 @@
+<section class="result-list__section">
+    <div>
+        Sort By: 
+        <select name="sort-by" id="sort-by-select" [(ngModel)]="sortBy" class="dropdown-panel">
+            <option value="downloadSpeed">Download</option>
+            <option value="uploadSpeed">Upload</option>
+            <option value="price">Price</option>
+            <option value="name">Name</option>
+        </select>
+    </div>
+    <div>
+        @for (item of (resultDataList | async) | orderBy: sortBy; track item.id) {
+            <div class="result-list__container" data-test-id="result-list">
+                <div class="result-list__outer-header">{{item.id}}.</div>
+                <div class="result-list__content">
+                    <div>
+                        <span class="result-list__inner-header">{{item.id}}.</span>
+                        <span>{{item.name}}</span>
+                    </div>
+                    <div class="result-list__speed-container">
+                        <div class="result-list__speed-container-m">
+                            <div class="result-list__speed-content">
+                                <i class="fa-solid fa-arrow-down"></i>
+                                <span data-test-id="result-list-download-speed">{{item.downloadSpeed | mbps}}</span>
+                            </div>
+                            <span>Mbit/s</span>
+                        </div>
+                        <div class="result-list__speed-container-t">
+                            <span class="result-list__speed-header">Download</span>
+                            <div class="result-list__speed-content">
+                                <span class="result-list__border"><i class="fa-solid fa-arrow-down"></i></span>
+                                <span data-test-id="result-list-download-speed">{{item.downloadSpeed | mbps}} Mbit/s</span>
+                            </div>
+                            <span class="result-list__speed-header">Upload</span>
+                            <div class="result-list__speed-content">
+                                <span class="result-list__border"><i class="fa-solid fa-arrow-up"></i></span>
+                                <span data-test-id="result-list-upload-speed">{{item.uploadSpeed | mbps}} Mbit/s</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-list__benefits-container">
+                        <ul>
+                            @for (benefit of item.benefits; track benefit) {
+                                <li>{{benefit}}</li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="result-list__price-container" data-test-id="result-list-price">{{item.price | currency: 'EUR' }}</div>
+                    <div class="result-list__button-container">
+                        <div class="result-list__button-m">
+                            <button class="result-list__button">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="result-list__button-t">
+                            <span class="result-list__price">{{item.price | currency: 'EUR' }}</span>
+                            <button class="result-list__button">
+                                To Tariff
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

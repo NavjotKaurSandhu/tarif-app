@@ -1,0 +1,162 @@
+@import "../../../assets/scss/mixin";
+
+.result-list__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ta-spacing-6);
+}
+
+.result-list__container {
+  @include ta-desktop {
+    display: flex;
+    gap: var(--ta-spacing-3);
+    border: 1px solid;
+    margin-bottom: var(--ta-spacing-4);
+  }
+}
+
+.result-list__outer-header {
+  border-right: 1px solid;
+  align-content: center;
+  padding: var(--ta-spacing-2);
+
+  @include ta-show-hide(none);
+  @include ta-desktop {
+    @include ta-show-hide(block);
+  }
+}
+
+.result-list__content {
+  width: calc(100% - var(--ta-spacing-4));
+  border: 1px solid;
+  padding: var(--ta-spacing-2);
+  margin-bottom: var(--ta-spacing-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ta-spacing-3);
+  justify-content: space-between;
+  @include ta-desktop {
+    border: none;
+  }
+}
+
+.result-list__speed-container {
+  .result-list__speed-container-m {
+    @include ta-show-hide(block);
+    @include ta-tablet {
+      @include ta-show-hide(none);
+    }
+  }
+
+  .result-list__speed-container-t {
+    width: 200px;
+    @include ta-show-hide(none);
+    @include ta-tablet {
+      @include ta-show-hide(flex);
+      gap: var(--ta-spacing-2);
+      flex-direction: column;
+    }
+  }
+}
+
+.result-list__speed-content {
+  display: flex;
+  gap: var(--ta-spacing-4);
+
+  @include ta-tablet {
+    gap: var(--ta-spacing-1);
+    border: 1px solid;
+    border-radius: 0 16px 16px 0;
+
+    > span {
+      padding: var(--ta-spacing-1) var(--ta-spacing-5);
+    }
+
+    .result-list__border {
+      border-right: 1px solid;
+    }
+  }
+}
+
+.result-list__inner-header {
+  font-size: 1rem;
+  vertical-align: super;
+  margin-right: var(--ta-spacing-2);
+  @include ta-tablet {
+    margin-right: var(--ta-spacing-8);
+  }
+  @include ta-desktop {
+    @include ta-show-hide(none);
+  }
+}
+
+.result-list__button-container {
+  display: flex;
+  align-items: center;
+
+  .result-list__button-m {
+    @include ta-show-hide(block);
+    @include ta-tablet {
+      @include ta-show-hide(none);
+    }
+  }
+
+  .result-list__button-t {
+    @include ta-show-hide(none);
+    @include ta-tablet {
+      @include ta-show-hide(flex);
+      flex-direction: column;
+      gap: var(--ta-spacing-2);
+      align-items: end;
+    }
+  }
+
+  .result-list__button {
+    border: 1px solid var(--ta-button-border);
+    box-shadow: 2px 2px 2px 1px var(--ta-button-shadow);
+    height: 65px;
+
+    @include ta-tablet {
+      width: 150px;
+      height: 100%;
+      padding: var(--ta-spacing-1);
+    }
+
+    @include ta-desktop {
+      width: 200px;
+      height: 100%;
+      padding: var(--ta-spacing-1);
+    }
+  }
+}
+
+.result-list__price {
+  font-size: 1.5rem;
+}
+
+.result-list__price-container {
+  @extend .result-list__price;
+  @include ta-show-hide(block);
+  @include ta-tablet {
+    @include ta-show-hide(none);
+  }
+}
+
+.result-list__speed-header {
+  @include ta-show-hide(none);
+  @include ta-desktop {
+    @include ta-show-hide(block);
+  }
+}
+
+
+.result-list__benefits-container {
+    @include ta-show-hide(none);
+    @include ta-desktop {
+        @include ta-show-hide(block);
+    }
+}
+
+.dropdown-panel {
+  padding: var(--ta-spacing-1);
+}
